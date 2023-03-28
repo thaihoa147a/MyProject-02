@@ -305,7 +305,9 @@ body {
     padding: 16px 22px 22px 22px;
 }
 .item .thumb {
-    width: 370px;
+    width: calc(100% + 2px);
+    margin: -1px;
+    /* vì khi dùng boder-radius như thế này thì ảnh nằm trên thẻ lớn nhất bị boder-radius và không bao lấy phần dư ra vì vậy để ảnh bao lấy hết ta phải + + thêm vào width 2px và trừ margin -1px */
     height: 278px;
     border-radius: 12px 12px 0px 0px;
     object-fit: cover;
@@ -653,18 +655,20 @@ body {
 /* =========================Footer======================*/
 .footer {
     background: #2e2100;
+    padding: 96px 135px 0;
 }
 .footer .finished {
     display: flex;
-    padding: 96px 0 82px 0;
     align-items: center;
+    padding-bottom: 38px;
+    border-bottom: 1px solid #59554b;
 }
 .footer .social {
     width: 35%;
 }
 .social .social-desc {
     margin: 18px 0 18px;
-    width: 267px;
+    max-width: 267px;
     height: 78px;
     font-weight: 400;
     font-size: 1.4rem;
@@ -678,12 +682,13 @@ body {
 .social-icon a + a {
     margin-left: 16px;
 }
+
 .footer .contact {
     display: flex;
     justify-content: space-around;
 }
-.contact .contact-item + .contact-item {
-    /* margin-left: 130px; */
+.contact .contact-item {
+    width: 21.6%;
 }
 .contact-item .contact-title {
     display: flex;
@@ -697,11 +702,16 @@ body {
     color: #ffffff;
 }
 .contact ul a {
+    display: inline-block;
+    margin-bottom: 12px;
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 1.86;
     /* identical to box height, or 186% */
     color: #bfbcb2;
+}
+.contact ul li:last-child a {
+    margin-bottom: -12px;
 }
 
 .contact-item .item-qty {
@@ -719,9 +729,7 @@ body {
 }
 .item-qty .contact-item-strong {
     font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 1.75;
-    /* identical to box height, or 175% */
+
     color: #ffffff;
 }
 .company-title {
@@ -735,4 +743,15 @@ body {
 .address-title {
     width: 231px;
     /* height: 199px; */
+}
+.footer .copyright {
+    padding: 28px 0;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.86;
+    /* identical to box height, or 186% */
+
+    text-align: center;
+
+    color: #807d74;
 }
